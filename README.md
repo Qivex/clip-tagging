@@ -7,6 +7,7 @@ Before running this tool you need to download & compile several binaries and pla
 - [IUP](https://www.tecgraf.puc-rio.br/iup/) ([precompiled](https://sourceforge.net/projects/iup/files/3.31/Windows%20Libraries/Dynamic/))
 - [IUP Lua bindings](https://www.tecgraf.puc-rio.br/iup/en/iuplua.html) ([precompiled](https://sourceforge.net/projects/iup/files/3.31/Windows%20Libraries/Dynamic/Lua54/))
 - [SQLite 3 for Lua](http://lua.sqlite.org/) (compiled using [LuaRocks](https://luarocks.org/))
+
 Checklist of binaries:
 - `lua.exe`
 - `lua54.dll`
@@ -28,9 +29,9 @@ File metadata can be scanned using the button, although this will only work if V
 The third section is used to apply (doubleclick) or create new (rightclick) tags.
 
 ### Query execution
-To find files by tags execute SQL queries in the menu at `Choose` -> `...from Query`.
+To find files by tags execute SQL queries in the menu at `Choose` > `...from Query`.
 Nothing can be manipulated by accident because only SELECT queries are allowed.
-Files will only be added to the list when (at least) the rows "path" and "name" are included in the query result.
+Files will only be added to the list when (at least) the rows `file.path` and `file.name` are included in the query result.
 Below you can find the database schema and some example queries.
 
 ## Database
@@ -61,7 +62,7 @@ CREATE TABLE tagging (
 ### Example queries
 Files filmed in portrait mode:
 ```sql
-SELECT name, path
+SELECT file.name, file.path
 FROM file
 WHERE height > width
 ```
